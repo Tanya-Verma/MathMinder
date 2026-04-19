@@ -5,3 +5,4 @@ pytesseract
 pillow
 openai
 python-multipart
+gunicorn
