@@ -1,14 +1,13 @@
-# ------------------- IMPORTS -------------------
+
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.ocr import extract_text
 from backend.solver import solve_equation
+from backend.ocr import extract_text
 from backend.ai_engine import generate_steps
 from backend.verifier import verify
 
 
-# ------------------- APP INIT -------------------
 app = FastAPI()
 
 # Enable CORS (for frontend connection)
