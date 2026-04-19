@@ -1,4 +1,4 @@
-from solver import solve_equation
+from backend.solver import solve_equation
 
 def verify(problem, ai_output):
     correct_answer = solve_equation(problem)
