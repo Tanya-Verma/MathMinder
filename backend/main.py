@@ -1,12 +1,17 @@
+# ------------------- IMPORTS -------------------
+from fastapi import FastAPI, UploadFile, File
+from fastapi.middleware.cors import CORSMiddleware
+
 from backend.ocr import extract_text
 from backend.solver import solve_equation
 from backend.ai_engine import generate_steps
 from backend.verifier import verify
 
-# Initialize FastAPI app
+
+# ------------------- APP INIT -------------------
 app = FastAPI()
 
-# Enable CORS
+# Enable CORS (for frontend connection)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,41 +20,56 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Root endpoint
+
+# ------------------- ROOT -------------------
 @app.get("/")
 def home():
     return {"message": "MathMind API is running 🚀"}
 
 
-# TEXT INPUT ENDPOINT
+# ------------------- TEXT SOLVER -------------------
 @app.get("/solve")
 def solve(q: str):
-    answer = solve_equation(q)
-    explanation = generate_steps(q)
+    try:
+        answer = solve_equation(q)
+        explanation = generate_steps(q)
 
-    if not verify(q, explanation):
-        explanation = generate_steps(q + " verify carefully and correct mistakes")
+        # Verification loop
+        if not verify(q, explanation):
+            explanation = generate_steps(q + " verify carefully and correct mistakes")
 
-    return {
-        "question": q,
-        "answer": str(answer),
-        "explanation": explanation
-    }
+        return {
+            "question": q,
+            "answer": str(answer),
+            "explanation": explanation
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
 
 
-# IMAGE INPUT ENDPOINT
+# ------------------- IMAGE SOLVER -------------------
 @app.post("/solve-image")
 async def solve_image(file: UploadFile = File(...)):
-    extracted_text = await extract_text(file)  # ⚠️ async fix
+    try:
+        # OCR extraction
+        extracted_text = await extract_text(file)
 
-    answer = solve_equation(extracted_text)
-    explanation = generate_steps(extracted_text)
+        # Solve
+        answer = solve_equation(extracted_text)
+        explanation = generate_steps(extracted_text)
 
-    if not verify(extracted_text, explanation):
-        explanation = generate_steps(extracted_text + " verify carefully and correct mistakes")
+        # Verification
+        if not verify(extracted_text, explanation):
+            explanation = generate_steps(
+                extracted_text + " verify carefully and correct mistakes"
+            )
 
-    return {
-        "detected_text": extracted_text,
-        "answer": str(answer),
-        "explanation": explanation
-    }
+        return {
+            "detected_text": extracted_text,
+            "answer": str(answer),
+            "explanation": explanation
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
