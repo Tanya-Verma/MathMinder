@@ -1,14 +1,14 @@
-from openai import OpenAI
-import os
-
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+import requests
 
 def generate_steps(problem):
-    prompt = f"""Solve step-by-step: {problem}Explain simply.Give short tricks."""
+    prompt = f"Solve step by step: {problem}"
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[{"role": "user", "content": prompt}]
+    response = requests.post(
+        "http://localhost:11434/api/generate",
+        json={
+            "model": "llama3",
+            "prompt": prompt
+        }
     )
 
-    return response.choices[0].message.content
+    return response.json()["response"]
