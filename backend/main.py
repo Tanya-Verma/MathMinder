@@ -1,10 +1,7 @@
-from fastapi import FastAPI, UploadFile, File
-from fastapi.middleware.cors import CORSMiddleware
-
-from ocr import extract_text
-from solver import solve_equation
-from ai_engine import generate_steps
-from verifier import verify
+from backend.ocr import extract_text
+from backend.solver import solve_equation
+from backend.ai_engine import generate_steps
+from backend.verifier import verify
 
 # Initialize FastAPI app
 app = FastAPI()
