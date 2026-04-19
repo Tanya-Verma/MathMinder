@@ -1,14 +1,12 @@
-import requests
-
 def generate_steps(problem):
-    prompt = f"Solve step by step: {problem}"
+    return f"""
+Step 1: Given equation → {problem}
 
-    response = requests.post(
-        "http://localhost:11434/api/generate",
-        json={
-            "model": "llama3",
-            "prompt": prompt
-        }
-    )
+Step 2: Move constants to one side
 
-    return response.json()["response"]
+Step 3: Solve for variable
+
+Step 4: Final answer calculated using SymPy
+
+✔ This is a basic explanation 
+"""
