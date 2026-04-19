@@ -1,28 +1,66 @@
-const API = "http://127.0.0.1:8000";
+
+const API = "https://mathminder-11.onrender.com";
 
 async function solve() {
   let q = document.getElementById("input").value;
 
-  let res = await fetch(`${API}/solve?q=${q}`);
-  let data = await res.json();
+  if (!q) {
+    alert("Please enter a math problem");
+    return;
+  }
 
-  document.getElementById("output").innerText =
-    data.explanation;
+  try {
+    document.getElementById("output").innerText = "Solving... ⏳";
+
+    let res = await fetch(`${API}/solve?q=${encodeURIComponent(q)}`);
+    let data = await res.json();
+
+    if (data.error) {
+      document.getElementById("output").innerText = "Error: " + data.error;
+    } else {
+      document.getElementById("output").innerText =
+        "Answer: " + data.answer + "\n\n" + data.explanation;
+    }
+
+  } catch (err) {
+    document.getElementById("output").innerText =
+      "Server error. Backend might be sleeping 😴";
+  }
 }
 
+
+// ------------------ IMAGE SOLVER ------------------
 async function upload() {
-  let file = document.getElementById("file").files[0];
+  let fileInput = document.getElementById("file");
+  let file = fileInput.files[0];
+
+  if (!file) {
+    alert("Please upload an image");
+    return;
+  }
 
   let form = new FormData();
   form.append("file", file);
 
-  let res = await fetch(`${API}/solve-image`, {
-    method: "POST",
-    body: form
-  });
+  try {
+    document.getElementById("output").innerText = "Processing image... ⏳";
 
-  let data = await res.json();
+    let res = await fetch(`${API}/solve-image`, {
+      method: "POST",
+      body: form
+    });
 
-  document.getElementById("output").innerText =
-    data.explanation;
+    let data = await res.json();
+
+    if (data.error) {
+      document.getElementById("output").innerText = "Error: " + data.error;
+    } else {
+      document.getElementById("output").innerText =
+        "Detected: " + data.detected_text + "\n\n" + data.explanation;
+    }
+
+  } catch (err) {
+    document.getElementById("output").innerText =
+      "Server error. Backend might be sleeping 😴";
+  }
 }
