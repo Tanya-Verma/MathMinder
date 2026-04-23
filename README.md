@@ -1,4 +1,4 @@
-# 🧠 MathMind — AI Math Solver
+# 🧠 MathMind AI Math Assistant
 
 **Understand math, not just solve it.**
 
