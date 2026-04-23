@@ -43,20 +43,20 @@ MathMind follows a pipeline architecture:
 ## 🗂️ Project Structure
 
 ```
-mathmind/<br>
+mathmind/
 │
-├── backend/<br>
-│   ├── main.py<br>        
-│   ├── solver.py<br>      
-│   ├── ai_engine.py<br>    
-│   ├── ocr.py<br>          
-│   ├── verifier.py<br>     
-│   └── requirements.txt<br>
+├── backend/
+│   ├── main.py       
+│   ├── solver.py
+│   ├── ai_engine.py
+│   ├── ocr.py        
+│   ├── verifier.py    
+│   └── requirements.txt
 │
-├── frontend/<br>
-│   ├── index.html<br>
-│   ├── style.css<br>
-│   └── script.js<br>
+├── frontend/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 │
 └── README.md
 ```
