@@ -2,7 +2,7 @@
 
 **It works on Understanding math,then solving it.**
 
-MathMind is an AI-powered math problem solver that accepts **typed equations and images**, processes them through a **vision + symbolic + reasoning pipeline**, and returns **step-by-step explanations** in a your writting.
+*MathMind is an AI-powered math problem solver that accepts **typed equations and images**, processes them through a **vision + symbolic + reasoning pipeline**, and returns **step-by-step explanations** in a your writting.*
 
 ## 🚀 Features
 
