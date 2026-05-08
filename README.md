@@ -1,19 +1,19 @@
-# 🧠 MathMind AI Math Assistant
+#MathMind AI Math Assistant
 
 **It works on Understanding math,then solving it.**
 
 *MathMind is an AI-powered math problem solver that accepts **typed equations and images**, processes them through a **vision + symbolic + reasoning pipeline**, and returns **step-by-step explanations** in a your writting.*
 
-## 🚀 Features
+## Features
 
-* ✏️ `Solve typed math problems`
-* 📷 `Solve problems from images (OCR)`
-* 🧮 `Symbolic computation using SymPy`
-* 🧠 `Step-by-step explanations`
-* ⚡ `Fast API backend`
-* 🌐 `Deployable full-stack web app`
+* `Solve typed math problems`
+* `Solve problems from images (OCR)`
+* `Symbolic computation using SymPy`
+* `Step-by-step explanations`
+* `Fast API backend`
+* `Deployable full-stack web app`
 
-## 🧠 How It Works
+## How It Works
 
 MathMind follows a pipeline architecture:
 
@@ -40,7 +40,7 @@ MathMind follows a pipeline architecture:
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 mathmind/
@@ -63,7 +63,7 @@ mathmind/
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Clone the repository
 
@@ -107,7 +107,7 @@ frontend/index.html
 
 ---
 
-## 🌐 Deployment
+##Deployment
 
 ### Backend:
 
@@ -118,16 +118,16 @@ Deploy using Render
 Deploy using Vercel
 
 
-## 🔮
+##
 
-* 📊 `User progress tracking`
-* 🔐 `Authentication system`
-* ✍️ `Handwritten-style rendering`
-* 🤖 `Advanced LLM integration`
-* 📷 `Real-time camera solving`
+* `User progress tracking`
+* `Authentication system`
+* `Handwritten-style rendering`
+* `Advanced LLM integration`
+* `Real-time camera solving`
 
 
-## 💡 Tech Stack
+## Tech Stack
 
 * `Backend: FastAPI (Python)`
 * `Math Engine: SymPy`
@@ -135,7 +135,7 @@ Deploy using Vercel
 * `Frontend: HTML, CSS, JavaScript`
 
 
-## 👩‍💻 Author
+## Author
 
 *Tanya Verma*
 *Computer Science (AI) Student*
