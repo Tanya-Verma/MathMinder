@@ -11,7 +11,7 @@
 * `Symbolic computation using SymPy`
 * `Step-by-step explanations`
 * `Fast API backend`
-* 
+* `Deployable full-stack web app`
 
 ## How It Works
 
