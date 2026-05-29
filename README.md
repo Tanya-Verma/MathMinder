@@ -38,6 +38,10 @@ MathMind follows a pipeline architecture:
 
    * Ensures solution correctness
 
+6. **Doing research**
+   * ensure researched products
+
+
 ---
 
 ## Project Structure
